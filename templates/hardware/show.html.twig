@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hardware{% endblock %}
+
+{% block body %}
+    <h1>Hardware</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hardware.id }}</td>
+            </tr>
+            <tr>
+                <th>Brand</th>
+                <td>{{ hardware.Brand }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ hardware.Model }}</td>
+            </tr>
+            <tr>
+                <th>Hostname</th>
+                <td>{{ hardware.Hostname }}</td>
+            </tr>
+            <tr>
+                <th>CPU</th>
+                <td>{{ hardware.CPU }}</td>
+            </tr>
+            <tr>
+                <th>RAM</th>
+                <td>{{ hardware.RAM }}</td>
+            </tr>
+            <tr>
+                <th>Regdate</th>
+                <td>{{ hardware.Regdate ? hardware.Regdate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Owner</th>
+                <td>{{ hardware.Owner }}</td>
+            </tr>
+            <tr>
+                <th>Seller</th>
+                <td>{{ hardware.Seller }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ hardware.Location }}</td>
+            </tr>
+            <tr>
+                <th>SerialNumber</th>
+                <td>{{ hardware.SerialNumber }}</td>
+            </tr>
+            <tr>
+                <th>OfficeLicense</th>
+                <td>{{ hardware.OfficeLicense }}</td>
+            </tr>
+            <tr>
+                <th>WindowsLicense</th>
+                <td>{{ hardware.WindowsLicense }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hardware_index') }}">back to list</a>
+
+    <a href="{{ path('hardware_edit', {'id': hardware.id}) }}">edit</a>
+
+    {{ include('hardware/_delete_form.html.twig') }}
+{% endblock %}
