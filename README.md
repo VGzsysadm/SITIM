@@ -41,7 +41,7 @@ Turn on the dev server:
 php -S 127.0.0.1:8000 -t public
 ```
 
-First of all, execute the script at https:\\127.0.0.1:8000\configure.php
+First of all, execute the script at [https:\\127.0.0.1:8000\configure.php](https://github.com/VGzsysadm/Inventory-app/blob/master/public/configure.php)
 
 An admin user will be created with the user: admin and the password: admin.
 
@@ -54,7 +54,7 @@ Please remove script after the execution.
 
 ## Third party apps
 
-* [Symfony 4](https://github.com/clarketm/FileSaver.js/)
+* [FileSaver.js](https://github.com/clarketm/FileSaver.js/)
 
 ## Authors
 
