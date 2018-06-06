@@ -1,5 +1,6 @@
 {{ form_start(form, { 'attr': {'class': 'form-signin'} }) }}
     {{ form_row(form.plainPassword.first, {'label':false}) }}
     {{ form_row(form.plainPassword.second, {'label':false}) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
+<a type="button" class="btn btn-secondary submit-user" href="{{ path('reset_password') }}">Back</a>
+<button class="btn  btn-primary submit-user">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

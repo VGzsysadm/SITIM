@@ -12,11 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+use Symfony\Component\HttpFoundation\Session\Session;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ResetPasswordController extends Controller
 {
+    private $session;
+    public function __construct()
+    {
+        $this->session = new Session();
+    }
     /**
      * @Route("/my/password", name="reset_password")
      */
@@ -25,27 +31,31 @@ class ResetPasswordController extends Controller
         return $this->render('reset_password/index.html.twig', ['users' => $userRepository->findAll()]);
     }
     /**
-     * @Route("/my/password/{id}", name="edit_password", methods="GET|POST")
+     * @Route("/my/password/{id}", name="edit_password",methods="GET|POST")
+     * @ParamConverter("id", class="App:User")
+     * @Security("user.getId() == editUser.getId()")
      */
-    public function editUser(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function editUser(Request $request, User $editUser, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $user = $this->getUser();
-        $form = $this->createForm(ResetPasswordType::class, $user);
+        $editUser = $this->getUser();
+        $form = $this->createForm(ResetPasswordType::class, $editUser);
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
+            $password = $passwordEncoder->encodePassword($editUser, $editUser->getPlainPassword());
+            $editUser->setPassword($password);
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($editUser);
             $entityManager->flush();
+            $message = "The password has been updated.";
+            $this->session->getFlashBag()->add("status", $message);
             }
         return $this->render('reset_password/edit.html.twig', [
-            'user' => $user,
+            'user' => $editUser,
             'form' => $form->createView(),
         ]);
     }

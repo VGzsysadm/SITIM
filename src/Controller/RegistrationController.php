@@ -41,8 +41,8 @@ class RegistrationController extends Controller
             $entityManager->flush();
             if ($entityManager != null){
                 $message = "Your user has been registered although must be activated by an admin.";
-            $this->session->getFlashBag()->add("status", $message);
-            return $this->redirectToRoute('login');
+                $this->session->getFlashBag()->add("status", $message);
+                return $this->redirectToRoute('login');
         }
         }
 

@@ -11,7 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 use Symfony\Component\HttpFoundation\Session\Session;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * @Route("/settings/users")
  */
@@ -59,15 +62,16 @@ class UserController extends Controller
 
     /**
      * @Route("/{id}", name="user_delete", methods="DELETE")
+     * @ParamConverter("id", class="App:User")
      */
-    public function delete(Request $request, User $user): Response
+    public function delete(Request $request, User $editUser): Response
     {
-        $master = 1;
-        if($user->getId() > $master){
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token')))
+
+        if($editUser != $this->getUser()){
+        if ($this->isCsrfTokenValid('delete'.$editUser->getId(), $request->request->get('_token')))
                 {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($user);
+            $em->remove($editUser);
             $em->flush();
                 $message = "The user has been deleted.";
                 $this->session->getFlashBag()->add("status", $message);
@@ -76,7 +80,7 @@ class UserController extends Controller
 
                 }
         else{
-            $message = "The master user cannot be removed.";
+            $message = "You cannot delete yourself.";
             $this->session->getFlashBag()->add("status", $message);
             return $this->redirectToRoute('user_index');
             }
