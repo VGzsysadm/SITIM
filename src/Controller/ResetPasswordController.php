@@ -26,22 +26,24 @@ class ResetPasswordController extends Controller
     }
     /**
      * @Route("/my/password/{id}", name="edit_password", methods="GET|POST")
-     * @ParamConverter("id", class="App:User")
-     * @Security("'id' != null")
      */
     public function editUser(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        // 3) Encode the password (you could also do this via Doctrine listener)
+        $user = $this->getUser();
         $form = $this->createForm(ResetPasswordType::class, $user);
+        // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
-        $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-        $user->setPassword($password);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('edit_password', ['username' => $user->getUsername()]);
-        }
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
 
+            // 4) save the User!
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            }
         return $this->render('reset_password/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
