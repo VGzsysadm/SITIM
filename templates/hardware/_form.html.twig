@@ -1,4 +1,6 @@
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/BaseHardware.css') }}">{% endblock %}
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-primary submit-hardware">{{ button_label|default('Save') }}</button>
+    <a type="button" class="btn btn-secondary submit-hardware" href="{{ path('hardware_index') }}">Back</a>
 {{ form_end(form) }}

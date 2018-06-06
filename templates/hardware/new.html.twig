@@ -1,11 +1,5 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}New Hardware{% endblock %}
-
 {% block body %}
-    <h1>Create new Hardware</h1>
-
     {{ include('hardware/_form.html.twig') }}
-
-    <a href="{{ path('hardware_index') }}">back to list</a>
 {% endblock %}

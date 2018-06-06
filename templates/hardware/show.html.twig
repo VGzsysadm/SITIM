@@ -61,10 +61,5 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('hardware_index') }}">back to list</a>
-
-    <a href="{{ path('hardware_edit', {'id': hardware.id}) }}">edit</a>
-
     {{ include('hardware/_delete_form.html.twig') }}
 {% endblock %}

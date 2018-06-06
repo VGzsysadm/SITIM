@@ -9,6 +9,8 @@ security:
                     property: username
                     # if you're using multiple entity managers
                     # manager_name: customer
+    role_hierarchy:
+            ROLE_ADMIN: ROLE_USER
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -38,4 +40,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/hardware, roles: ROLE_USER }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/my, roles: ROLE_USER }
+         - { path: ^/settings, roles: ROLE_ADMIN }

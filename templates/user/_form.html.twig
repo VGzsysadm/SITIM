@@ -1,8 +1,7 @@
 {{ form_start(form, { 'attr': {'class': 'form-signin'} }) }}
     {{ form_row(form.username, {'label':false}) }}
     {{ form_row(form.email, {'label':false}) }}
-    {{ form_row(form.plainPassword.first, {'label':false}) }}
-    {{ form_row(form.plainPassword.second, {'label':false}) }}
-    {{ form_row(form.isActive, {'label':false}) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.isActive) }}
+<a type="button" class="btn btn-secondary submit-hardware" href="{{ path('user_index') }}">Back</a>
+<button class="btn btn-primary submit-hardware">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

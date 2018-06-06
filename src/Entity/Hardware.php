@@ -59,7 +59,7 @@ class Hardware
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Location;
+    private $Location = null;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -69,12 +69,12 @@ class Hardware
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $OfficeLicense;
+    private $OfficeLicense = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $WindowsLicense;
+    private $WindowsLicense = null;
 
     public function getId()
     {

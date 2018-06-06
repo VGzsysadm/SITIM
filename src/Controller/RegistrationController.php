@@ -8,9 +8,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegistrationController extends Controller
 {
+    private $session;
+    public function __construct()
+    {
+        $this->session = new Session();
+    }
+
     /**
      * @Route("/register", name="user_registration")
      */
@@ -32,11 +39,11 @@ class RegistrationController extends Controller
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
-
+            if ($entityManager != null){
+                $message = "Your user has been registered although must be activated by an admin.";
+            $this->session->getFlashBag()->add("status", $message);
             return $this->redirectToRoute('login');
+        }
         }
 
         return $this->render(

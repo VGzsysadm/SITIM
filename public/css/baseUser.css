@@ -1,0 +1,12 @@
+.delete-user{
+    margin-left: 0px;
+}
+label{
+    margin-top: 9px;
+    margin-left: 5px;
+}
+input[type="checkbox"]{
+    margin-left: 5px;
+    margin-top: 15px;
+    float: left;
+}

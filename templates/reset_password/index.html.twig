@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Username</th>
+            <td>{{ app.user.username }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ app.user.email }}</td>
+        </tr>
+        <a href="{{ path('edit_password', {'id': app.user.id}) }}"><i class="material-icons">edit</i></a>
+        </tbody>
+    </table>
+
+{% endblock %}

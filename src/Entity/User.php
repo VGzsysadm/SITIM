@@ -42,7 +42,7 @@ class User implements AdvancedUserInterface, \Serializable
     private $email;
 
     /**
-     * @Assert\NotBlank()
+     *
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -118,6 +118,7 @@ class User implements AdvancedUserInterface, \Serializable
         $this->termsAccepted = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+        $this->roles = array('ROLE_ADMIN');
         $this->roles = array('ROLE_USER');
     }
 
