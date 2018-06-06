@@ -23,6 +23,7 @@ Install dependencies
 cd Inventory-app
 composer install
 ```
+### Launch test server
 
 Modify .env file with your database information.
 
@@ -40,12 +41,20 @@ Turn on the dev server:
 php -S 127.0.0.1:8000 -t public
 ```
 
-When you register in the application, the user by the default is disabled, you need to change the row "is_active" in the table "app_users" to 1.
+First of all, execute the script at https:\\127.0.0.1:8000\configure.php
+
+An admin user will be created with the user: admin and the password: admin.
+
+Please remove script after the execution.
 
 ## Built With
 
 * [Symfony 4](https://symfony.com/doc/current/index.html)
 * [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+
+## Third party apps
+
+* [Symfony 4](https://github.com/clarketm/FileSaver.js/)
 
 ## Authors
 
