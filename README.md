@@ -60,4 +60,10 @@ Please remove script after the execution.
 
 * **VGzsysadm** - *https://sysadm.es* - [@VGzsysadm](https://github.com/VGzsysadm)
 
+## License
+
+License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/VGzsysadm/Inventory-app/blob/master/LICENSE.md) file for details
+
 
