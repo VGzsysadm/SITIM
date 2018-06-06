@@ -62,8 +62,6 @@ Please remove script after the execution.
 
 ## License
 
-License
-
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/VGzsysadm/Inventory-app/blob/master/LICENSE.md) file for details
 
 
