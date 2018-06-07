@@ -4,7 +4,7 @@ Application for manage your computer inventory - incidents & more ( working on )
 
 ### Prerequisites
 
-* PHP 7.2 ( xml-zip-mysql-mbstring-intl)
+* PHP 7.1+ ( xml-zip-mysql-mbstring-intl)
 * Mysql
 * Composer
 
