@@ -54,7 +54,8 @@ Please remove script after the execution.
 
 ## Third party apps
 
-* [FileSaver.js](https://github.com/clarketm/FileSaver.js/)
+* [tableExport.jquery.plugin](hhurz/tableExport.jquery.plugin forked from kayalshri/tableExport.jquery.plugin
+)
 
 ## Authors
 
