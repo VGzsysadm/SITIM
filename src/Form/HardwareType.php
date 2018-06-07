@@ -65,7 +65,7 @@ class HardwareType extends AbstractType
             ), 'required' => 'required', 'attr' => array( 'class' => 'form-control')))
             ->add('Regdate', DateType::class, array( 'required' => 'required', 'attr' => array( 'autofocus' => 'autofocus','placeholder' => 'Model')))
             ->add('Owner', TextType::class, array( 'required' => 'required', 'empty_data' => 'Not found', 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Owner')))
-            ->add('Seller', TextType::class, array( 'required' => false, 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Default value: Not found')))
+            ->add('Seller', TextType::class, array( 'required' => false, 'empty_data' => 'Not found', 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Default value: Not found')))
             ->add('Location', TextType::class, array( 'label' => 'Location', 'required' => 'required', 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Location')))
             ->add('SerialNumber', TextType::class, array( 'required' => 'required', 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Serial Number')))
             ->add('OfficeLicense', TextType::class, array( 'required' => false,'empty_data' => 'Not found', 'attr' => array( 'class' => 'form-control', 'autofocus' => 'autofocus','placeholder' => 'Default value: Not found')))
