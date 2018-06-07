@@ -3,11 +3,12 @@
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/BaseHardware.css') }}">{% endblock %}
 {% block body %}
     {% block javascripts %}<script type="text/javascript" src="/js/filesaver/libs/FileSaver/FileSaver.min.js"></script>
+        <script type="text/javascript" src="/js/filesaver/libs/js-xlsx/xlsx.core.min.js"></script>
         <script type="text/javascript" src="/js/filesaver/tableExport.min.js"></script>
     {% endblock %}
     <h1>Hardware list</h1>
     <div class="panel-body text-right">
-                 <a class="btn btn-outline-primary" onclick="$('#hardware-table').tableExport({type:'csv',escape:'false'});"><i class="material-icons">add_circle</i>Export to CSV</a>
+                 <a class="btn btn-outline-primary" onclick="$('#hardware-table').tableExport({fileName:'Inventory-export',ignoreColumn: [0],type:'excel',escape:'false'});"><i class="material-icons">add_circle</i>Export to Excel</a>
                 {% if is_granted('ROLE_ADMIN') %}
                 <a class="btn btn-outline-primary" href="{{ path('hardware_new') }}"><i class="material-icons">add_circle_outline</i>Add new</a>
                 {% else %}
