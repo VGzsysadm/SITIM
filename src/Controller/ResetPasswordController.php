@@ -24,14 +24,14 @@ class ResetPasswordController extends Controller
         $this->session = new Session();
     }
     /**
-     * @Route("/my/password", name="reset_password")
+     * @Route("/profile/password", name="reset_password")
      */
     public function MyProfile(UserRepository $userRepository): Response
     {
         return $this->render('reset_password/index.html.twig', ['users' => $userRepository->findAll()]);
     }
     /**
-     * @Route("/my/password/{id}", name="edit_password",methods="GET|POST")
+     * @Route("/profile/password/{id}", name="edit_password",methods="GET|POST")
      * @ParamConverter("id", class="App:User")
      * @Security("user.getId() == editUser.getId()")
      */

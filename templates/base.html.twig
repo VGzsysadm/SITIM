@@ -22,10 +22,14 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
     <nav class="my-2 my-md-0 mr-md-3">
         {% if app.User != null %}
+            <a class="p-2 text-dark" href="{{ path('issues_index')}}"><i class="material-icons">event_note</i>Issue manager</a>
             <a class="p-2 text-dark" href="{{ path('hardware_index')}}"><i class="material-icons">laptop</i>Manage Hardware</a>
-            <button class="btn btn-outline-primary" type="button" data-toggle="dropdown">Hello!, {{ app.user.username }}<i class="material-icons">arrow_drop_down</i></button>
+                {% with %}
+                {% set lang = app.user.lang %}
+                <button class="btn btn-outline-primary" type="button" data-toggle="dropdown">{% trans into lang %}Hello{% endtrans %}!, {{ app.user.username }}<i class="material-icons">arrow_drop_down</i></button>
+                {% endwith %}
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ path('my_user')}}"><i class="material-icons">person</i>My profile</a></li>
+                <li><a class="dropdown-item" href="{{ path('profile')}}"><i class="material-icons">person</i>My profile</a></li>
                 <ul class="user-sub-menu">
                     <li><a class="dropdown-item" href="{{ path('reset_password')}}"><i class="material-icons">vpn_key</i>Reset Password</a></li>
                 </ul>

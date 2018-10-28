@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My profile{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <tbody>
+        <a class="btn btn-outline-primary" style="float: right;margin-bottom:10px;" href="{{ path('profile_edit', {'id': app.user.id}) }}"><i class="material-icons">add_circle_outline</i>Edit my profile</a>
+        <tr>
+            <th>Username</th>
+            <td>{{ app.user.username }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ app.user.email }}</td>
+        </tr>
+        <tr>
+            <th>Application Language</th>
+            {# Lang config #}
+            {# es_ES #}
+            {% with %}
+            {% set lang = app.user.lang %}
+                {% if lang == 'es_ES' %}
+                    {% set lang = 'Spanish' %}
+            <td>{{ lang }}</td>
+            {% endif %}
+            {% endwith %}
+            {# Lang config #}
+            {# es_ES #}
+            {% with %}
+            {% set lang = app.user.lang %}
+                {% if lang == 'en_EN' %}
+                    {% set lang = 'English' %}
+            <td>{{ lang }}</td>
+            {% endif %}
+            {% endwith %}
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -62,6 +62,12 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $roles;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
+     */
+    private $lang = 'en_EN';
+
     public function getId()
     {
         return $this->id;
@@ -139,6 +145,18 @@ class User implements AdvancedUserInterface, \Serializable
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    public function getLang(): ?string
+    {
+        return $this->lang;
+    }
+
+    public function setLang(string $lang): self
+    {
+        $this->lang = $lang;
+
+        return $this;
     }
 
     public function getSalt()

@@ -1,0 +1,7 @@
+.form-signin .form-control {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form-control{
+	height: 45px !important;
+}
