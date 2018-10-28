@@ -51,7 +51,7 @@ Please remove script after the execution.
 
 * [Symfony 4](https://symfony.com/doc/current/index.html)
 * [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
-
+* [Materials Icons](https://material.io/design)
 ## Third party apps
 
 * [tableExport.jquery.plugin](https://github.com/hhurz/tableExport.jquery.plugin)
