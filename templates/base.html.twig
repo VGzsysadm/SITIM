@@ -19,35 +19,38 @@
 </head>
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+    {% with %}
+    {% set lang = app.user.lang %}
+    <h5 class="my-0 mr-md-auto font-weight-normal">{% trans into lang %}Company Name{% endtrans %}</h5>
     <nav class="my-2 my-md-0 mr-md-3">
         {% if app.User != null %}
-            <a class="p-2 text-dark" href="{{ path('issues_index')}}"><i class="material-icons">event_note</i>Issue manager</a>
-            <a class="p-2 text-dark" href="{{ path('hardware_index')}}"><i class="material-icons">laptop</i>Manage Hardware</a>
-                {% with %}
-                {% set lang = app.user.lang %}
+            <a class="p-2 text-dark" href="{{ path('issues_index')}}"><i class="material-icons">event_note</i>{% trans into lang %}Issue Manager{% endtrans %}</a>
+            <a class="p-2 text-dark" href="{{ path('hardware_index')}}"><i class="material-icons">laptop</i>{% trans into lang %}Manage Hardware{% endtrans %}</a>
                 <button class="btn btn-outline-primary" type="button" data-toggle="dropdown">{% trans into lang %}Hello{% endtrans %}!, {{ app.user.username }}<i class="material-icons">arrow_drop_down</i></button>
-                {% endwith %}
+                
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ path('profile')}}"><i class="material-icons">person</i>My profile</a></li>
+                <li><a class="dropdown-item" href="{{ path('profile')}}"><i class="material-icons">person</i>{% trans into lang %}My Profile{% endtrans %}</a></li>
                 <ul class="user-sub-menu">
-                    <li><a class="dropdown-item" href="{{ path('reset_password')}}"><i class="material-icons">vpn_key</i>Reset Password</a></li>
+                    <li><a class="dropdown-item" href="{{ path('reset_password')}}"><i class="material-icons">vpn_key</i>{% trans into lang %}Reset Password{% endtrans %}</a></li>
                 </ul>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <li><a class="dropdown-item" href="{{ path('settings')}}"><i class="material-icons">settings</i>Settings</a></li>
-                    <li><a class="dropdown-item" href="{{ path('user_index')}}"><i class="material-icons">people</i>Users</a></li>
+                    <li><a class="dropdown-item" href="{{ path('settings')}}"><i class="material-icons">settings</i>{% trans into lang %}Settings{% endtrans %}</a></li>
+                    <li><a class="dropdown-item" href="{{ path('user_index')}}"><i class="material-icons">people</i>{% trans into lang %}Users{% endtrans %}</a></li>
                 {% else %}
                 {% endif %}
                 <li role="separator" class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{ path('logout')}}"><i class="material-icons">https</i>Log out</a></li>
+                <li><a class="dropdown-item" href="{{ path('logout')}}"><i class="material-icons">https</i>{% trans into lang %}Log out{% endtrans %}</a></li>
             </ul>
         {% else %}
-            <a class="btn btn-outline-primary" href="{{ path('login')}}">Login</a>
-            <a class="btn btn-outline-primary" href="{{ path('user_registration')}}">Sign up</a>
+            <a class="btn btn-outline-primary" href="{{ path('login')}}">{% trans into lang %}Login{% endtrans %}</a>
+            <a class="btn btn-outline-primary" href="{{ path('user_registration')}}">{% trans into lang %}Sing up{% endtrans %}</a>
         {% endif %}
     </nav>
+    {% endwith %}
 </div>
 <div class="container">
+    {% with %}
+    {% set lang = app.user.lang %}
     {% for message in app.session.flashbag() .get('status') %}
         <div class="alert alert-success">{{message}}</div>
     {% endfor %}
@@ -59,33 +62,34 @@
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-6 col-md footer-col">
-                <h5>Features</h5>
+                <h5>{% trans into lang %}Features{% endtrans %}</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Managing items</a></li>
-                    <li><a class="text-muted" href="{{ path('documentation') }}">Documentation</a></li>
+                    <li><a class="text-muted" href="#">{% trans into lang %}Managing items{% endtrans %}</a></li>
+                    <li><a class="text-muted" href="{{ path('documentation') }}">{% trans into lang %}Documentation{% endtrans %}</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md footer-col">
-                <h5>Resources</h5>
+                <h5>{% trans into lang %}Resources{% endtrans %}</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="{{ path('contact') }}">Contact</a></li>
-                    <li><a class="text-muted" href="{{ path('privacy_policy') }}">Privacy policy</a></li>
+                    <li><a class="text-muted" href="{{ path('contact') }}">{% trans into lang %}Contact{% endtrans %}</a></li>
+                    <li><a class="text-muted" href="{{ path('privacy_policy') }}">{% trans into lang %}Privacy Policy{% endtrans %}</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md footer-col">
-                <h5>About</h5>
+                <h5>{% trans into lang %}About{% endtrans %}</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="https://github.com/VGzsysadm/Inventory-app">GitHub project</a></li>
+                    <li><a class="text-muted" href="https://github.com/VGzsysadm/Inventory-app">{% trans into lang %}GitHub project{% endtrans %}</a></li>
                     <li><a class="text-muted" href="https://sysadm.es">Blog</a></li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <div class="col-6 col-md copyright-block">
-                <small class="d-block mb-3 text-muted">&copy; 2018 application by Víctor - sysadm.es</small>
+                <small class="d-block mb-3 text-muted">&copy; 2018 {% trans into lang %}application by{% endtrans %} Víctor - sysadm.es</small>
             </div>
         </div>
     </footer>
+{% endwith %}    
 </div>
 </body>
 </html>
