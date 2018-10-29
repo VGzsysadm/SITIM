@@ -6,7 +6,7 @@ $dbname = "dbname";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $db->prepare("INSERT INTO posts ( id, username, password, email, isactive, termsAccepted, roles, lang ) VALUES ( NULL, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO app_users ( id, username, password, email, isactive, termsAccepted, roles, lang ) VALUES ( NULL, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssss", $id, $username, $password, $email, $isactive, $termsAccepted, $roles, $lang  );
     $id = '1';
     $username = 'admin';
