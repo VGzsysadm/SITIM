@@ -1,6 +1,6 @@
 # System Information Technology Integrated Manager 
 
-Application for manage your computer inventory - incidents & more ( working on ).
+Manage your IT inventory, issues, notifications, chat and more. ( Work in progress )
 
 ### Prerequisites
 
