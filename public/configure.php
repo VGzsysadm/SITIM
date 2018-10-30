@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$usr = "$usr";
-$pwd = "$pwd";
-$dbname = "$dbname";
+$usr = "usr";
+$pwd = "pwd";
+$dbname = "dbname";
 
 try {
 	$id = "1";
