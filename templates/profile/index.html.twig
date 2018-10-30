@@ -5,17 +5,17 @@
 {% block body %}
     <table class="table">
         <tbody>
-        <a class="btn btn-outline-primary" style="float: right;margin-bottom:10px;" href="{{ path('profile_edit', {'id': app.user.id}) }}"><i class="material-icons">add_circle_outline</i>Edit my profile</a>
+        <a class="btn btn-outline-primary" style="float: right;margin-bottom:10px;" href="{{ path('profile_edit', {'id': app.user.id}) }}"><i class="material-icons">add_circle_outline</i>{% trans into lang %}Edit Profile{% endtrans %}</a>
         <tr>
-            <th>Username</th>
+            <th>{% trans into lang %}Username{% endtrans %}</th>
             <td>{{ app.user.username }}</td>
         </tr>
         <tr>
-            <th>Email</th>
+            <th>{% trans into lang %}Email{% endtrans %}</th>
             <td>{{ app.user.email }}</td>
         </tr>
         <tr>
-            <th>Application Language</th>
+            <th>{% trans into lang %}Application language{% endtrans %}</th>
             {# Lang config #}
             {# es_ES #}
             {% with %}
