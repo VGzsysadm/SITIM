@@ -1,0 +1,33 @@
+#base.html.twig
+Hello: Hello
+Issue Manager: Issue Manager
+Manage Hardware: Manage Hardware
+My Profile: My Profile
+Reset Password: Reset Password
+Settings: Settings
+Users: Users
+Login: Login
+Sing up: Sing up
+Log out: Log out
+Features: Features
+Managing items: Managing items
+Documentation: Documentation
+Resources: Resources
+Contact: Contact
+Privacy Policy: Privacy Policy
+About: About
+GitHub project: GitHub project
+application by: application by
+#signin
+Please Sign in: Please Sign in
+Username: Username
+Password: Password
+Remember me: Remember me
+Sign in: Sign in
+#register
+Register: Register
+Check here to indicate that you read and agree the: Check here to indicate that you read and agree the
+#register
+Edit Profile: Edit Profile
+Email: Email
+Application language: Application language

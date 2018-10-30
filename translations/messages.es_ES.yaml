@@ -1,0 +1,33 @@
+#base.html.twig
+Hello: Hola
+Issue Manager: Gestionar Incidencias
+Manage Hardware: Gestionar Hardware
+My Profile: Mi Perfil
+Reset Password: Restablecer Contraseña
+Settings: Configuración
+Users: Usuarios
+Login: Iniciar sesión
+Sing up: Registrarse
+Log out: Cerrar Sesión
+Features: Funcionalidades
+Managing items: Manipulando items
+Documentation: Documentación
+Resources: Fuentes
+Contact: Contacto
+Privacy Policy: Política de privacidad
+About: Acerca de
+GitHub project: Proyecto en GitHub
+application by: aplicación por
+#signin
+Please Sign in: Autentifícate
+Username: Usuario
+Password: Contraseña
+Remember me: Recordar
+Sign in: Iniciar sesión
+#register
+Register: Registrarse
+Check here to indicate that you read and agree the: Clica aquí para indicar que has leído y estás conforme con la
+#register
+Edit Profile: Editar Perfil
+Email: Correo
+Application language: Lenguaje de la aplicación
