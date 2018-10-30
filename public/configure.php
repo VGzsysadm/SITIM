@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$usr = "usr";
-$pwd = "pwd";
-$dbname = "dbname";
+$usr = "$usr";
+$pwd = "$pwd";
+$dbname = "$dbname";
 
 try {
 	$id = "1";
@@ -26,9 +26,10 @@ try {
 	$stmt-> bindValue(":roles",$roles,PDO::PARAM_STR);
 	$stmt-> bindValue(":lang",$lang,PDO::PARAM_BOOL);
 	$stmt->execute();
+	echo "The user admin has been created with the password admin, now you can log in.";
     }
 catch(PDOException $e)
     {
-    echo "Connection failed: " . $e->getMessage();
+    echo "You cannot use this query again." . "<br>" . "If you used already this config file, please remove it urgently from the public folder, if not check your database connection data.";
     }
-?> 
+?>
