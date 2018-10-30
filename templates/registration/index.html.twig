@@ -3,14 +3,14 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1 class="h3 mb-3 font-weight-normal form-header">Register</h1>
+    <h1 class="h3 mb-3 font-weight-normal form-header">{% trans into lang %}Register{% endtrans %}</h1>
     {{ form_start(form, { 'attr': {'class': 'form-signin'} }) }}
     {{ form_row(form.username, {'label':false}) }}
     {{ form_row(form.email, {'label':false}) }}
     {{ form_row(form.plainPassword.first, {'label':false}) }}
     {{ form_row(form.plainPassword.second, {'label':false}) }}
     {{ form_row(form.termsAccepted, {'label':false}) }}
-    <p class="terms">Check here to indicate that you read and agree the  <a href="{{ path('privacy_policy') }}">Privacy Policy.</a></p>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <p class="terms">{% trans into lang %}Check here to indicate that you read and agree the{% endtrans %} <a href="{{ path('privacy_policy') }}">{% trans into lang %}Privacy Policy{% endtrans %}.</a></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans into lang %}Register{% endtrans %}</button>
     {{ form_end(form) }}
 {% endblock %}
